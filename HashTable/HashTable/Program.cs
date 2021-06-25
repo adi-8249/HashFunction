@@ -9,6 +9,7 @@ namespace HashTable
             Console.WriteLine("Welcome to HashTab ");
             //UC1_Frequency of words
             //Frequency means Repeatation
+            Console.WriteLine("--------UC1 OUTPUT--------");
             MyMapNode<int, string> node = new MyMapNode<int, string>(6);
             node.Add(0, "to");
             node.Add(1, "be");
@@ -24,7 +25,9 @@ namespace HashTable
             Console.WriteLine("Frequency of or : " + node2);
             string node3 = node.Get(3);
             Console.WriteLine("Frequency of not : " + node3);
+
             //UC2_Frequency of a large pargraph
+            Console.WriteLine("----------UC2 OUTPUT----------");
             string paragraph = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
             string[] para = paragraph.Split(" ");
             MyMapNode<int, string> hash = new MyMapNode<int, string>(para.Length);
@@ -36,6 +39,19 @@ namespace HashTable
             }
             Frequency frequency = new Frequency();
             frequency.Freqncy(hash);
+            //removing avoidable word
+            Console.WriteLine("----------UC3 OUTPUT----------");
+            string paragraphone = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
+            string[] paraone = paragraph.Split(" ");
+            MyMapNode<int, string> mapNode = new MyMapNode<int, string>(paraone.Length);
+            int Key = 0;
+            foreach (string word in paraone)
+            {
+                hash.Add(key, word);
+                key++;
+            }
+           Frequency operation = new Frequency();
+            operation.Remove(hash, "avoidable");
         }
     }
 }
